@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ezequiel · Mis 18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Mrs+Saint+Delafield&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<audio id="musica" loop preload="auto" src="musica.mp3"></audio>
+<button id="sonido" type="button" aria-label="Activar o pausar la música" aria-pressed="false"><span></span><span></span><span></span><span></span></button>
+<button id="entrar" type="button" aria-label="Abrir la invitación">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <span class="g-in">
+    <span class="g-pre">Estás invitado</span>
+    <span class="g-num">18</span>
+    <span class="g-aro"></span>
+    <span class="g-txt">Tocá para abrir la invitación</span>
+    <span class="g-sub">Con música</span>
+  </span>
+</button>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="luna" viewBox="0 0 100 100">
+      <mask id="m"><rect width="100" height="100" fill="#fff"/><circle cx="64" cy="42" r="36" fill="#000"/></mask>
+      <circle cx="46" cy="52" r="38" fill="#f6ecd0" mask="url(#m)"/>
+    </symbol>
+    <linearGradient id="gOrn" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="260" y2="0"><stop offset="0" stop-color="#162f45"/><stop offset=".6" stop-color="#2c5a84"/><stop offset="1" stop-color="#5486b8"/></linearGradient>
+    <g id="mitadOrn" fill="none" stroke="url(#gOrn)" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke-width="5" d="M44 40C20 40 8 22 24 16 38 12 46 26 36 31"/>
+      <path stroke-width="5" d="M44 40C70 40 90 26 118 36 140 44 160 50 190 40 206 34 220 30 240 32"/>
+      <path stroke-width="3.5" d="M118 36C132 20 156 18 160 30 162 38 152 40 150 34"/>
+      <path fill="url(#gOrn)" stroke="none" d="M214 36C228 20 248 22 260 30 246 30 232 34 214 36ZM214 40C230 52 248 54 260 46 246 44 232 42 214 40Z"/>
+    </g>
+    <symbol id="flor" viewBox="0 0 260 40">
+      <g fill="none" stroke="#1f3b63" stroke-width="3.5" stroke-linecap="round">
+        <path id="mitad" d="M122 22 H70 C52 22 46 6 26 10 C10 13 6 28 20 28 C30 28 30 17 21 17"/>
+        <use href="#mitad" transform="translate(260 0) scale(-1 1)"/>
+      </g>
+      <path d="M130 14 L136 22 L130 30 L124 22Z" fill="#1f3b63"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="cielo hero">
+  <canvas class="fx" data-luna="1" aria-hidden="true"></canvas>
+  <div class="texto">
+    <svg class="deco" viewBox="0 0 260 220" aria-hidden="true">
+      <g fill="none" stroke="#f3f1ee" stroke-width="2.2" stroke-linecap="round">
+        <path d="M150 30C230 20 262 100 225 165C205 198 165 208 125 204C205 180 225 110 150 30Z"/>
+        <path d="M60 70C90 40 130 38 160 52"/>
+        <path d="M40 30l16 16M56 30L40 46M215 128l12 12M227 128l-12 12M235 40l12 12M247 40l-12 12"/>
+      </g>
+      <g fill="#f3f1ee"><circle cx="178" cy="78" r="5"/><circle cx="200" cy="98" r="3"/><circle cx="160" cy="168" r="4.5"/><circle cx="188" cy="176" r="3"/></g>
+    </svg>
+    <svg class="mis" viewBox="0 0 220 80" role="img" aria-label="Mis 18"><text class="trazo" x="110" y="62" text-anchor="middle">MIS <tspan>18</tspan></text></svg>
+    <h1 class="nombre"><svg viewBox="0 0 700 230" role="img" aria-label="Ezequiel"><text class="trazo" x="350" y="150" text-anchor="middle">Ezequiel</text></svg></h1>
+    <div class="reloj" aria-label="Cuenta regresiva">
+      <div class="u"><b id="d">0</b><span>Días</span></div><i>:</i>
+      <div class="u"><b id="h">00</b><span>Horas</span></div><i>:</i>
+      <div class="u"><b id="m">00</b><span>Minutos</span></div><i>:</i>
+      <div class="u"><b id="s">00</b><span>Segundos</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="fecha">
+  <h2 class="titulo">Te invito a mi cumple</h2>
+  <p class="fina" style="margin-top:1rem">Sábado 26 de diciembre</p>
+  <p class="mayus">22:00 hs</p>
+</section>
+
+<section id="lugar">
+  <h2 class="titulo">Lugar</h2>
+  <p class="mayus" style="margin-top:.8rem">Shakell Eventos<br>Bernardo de Monteagudo 2145</p>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shakell+Eventos+Bernardo+de+Monteagudo+2145+San+Miguel+de+Tucum%C3%A1n">Cómo llegar</a>
+  <a class="btn" id="calendario" target="_blank" rel="noopener" href="#">Agendar</a>
+</section>
+
+<section id="misa">
+  <h2 class="titulo">Misa</h2>
+  <p class="fina" style="margin-top:.6rem">Martes 22 de diciembre</p>
+  <p class="mayus">20:30 hs</p>
+  <p class="mayus" style="margin-top:.8rem">Catedral Nuestra Señora de la Encarnación</p>
+  <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Catedral+Nuestra+Se%C3%B1ora+de+la+Encarnaci%C3%B3n+San+Miguel+de+Tucum%C3%A1n">Cómo llegar</a>
+</section>
+
+<section id="dresscode">
+  <h2 class="titulo">Dress code</h2>
+  <p class="fina" style="margin-top:.6rem">Elegante</p>
+  <div class="iconos">
+    <div>
+      <div class="ic"><svg viewBox="0 0 60 60" role="img" aria-label="Traje"><path d="M22 8 30 17 38 8 49 13 53 54H7L11 13Z"/><path d="M22 8 28 30 30 26M38 8 32 30 30 26M30 17V54"/><path d="M30 19 27.5 26 30 42 32.5 26Z"/></svg></div>
+    </div>
+    <div>
+      <div class="ic"><svg viewBox="0 0 60 60" role="img" aria-label="Vestido"><path d="M23 5 25 16 30 24 35 16 37 5"/><path d="M25 16 26.5 31H33.5L35 16"/><path d="M26.5 31C25 42 17 50 10 56 18 53 24 58 30 55 36 58 42 53 50 56 43 50 35 42 33.5 31"/><path d="M30 31C29.5 40 29 48 30 55M30 31C26 40 22 48 19 54M30 31C34 40 38 48 41 54"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="regalo" id="regalo">
+  <svg viewBox="0 0 220 190" role="img" aria-label="Regalo">
+    <path id="arco" d="M40 100 A70 70 0 0 1 180 100" fill="none"/>
+    <text font-family="Josefin Sans,Arial,sans-serif" font-weight="600" font-size="30" fill="#78a6d0" letter-spacing="1"><textPath href="#arco" startOffset="50%" text-anchor="middle">REGALO</textPath></text>
+    <circle cx="110" cy="130" r="55" fill="#2c5a84"/>
+    <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(110 132)">
+      <path d="M-26-6 0-14 26-6V22L0 30-26 22Z"/><path d="M0-14V30M-26-6 0 2 26-6"/>
+      <path d="M0-14C-12-36-28-22-14-16ZM0-14C12-36 28-22 14-16Z"/>
+    </g>
+  </svg>
+  <p class="fina">El regalo es opcional,<br>la asistencia es obligatoria!</p>
+  <p class="mayus">Si deseas hacerme un regalo en el salón dejaremos un cofre en donde podés dejar tu presente..</p>
+  <button class="btn" id="otra" type="button">Otra opción</button>
+  <div id="alias"><small>Alias</small><span id="aliasTxt"></span></div>
+  <button class="btn" id="copiar" type="button" style="padding:.55rem 1.8rem;font-size:1rem">Copiar alias</button>
+  <svg class="orn" viewBox="0 0 520 70" aria-hidden="true"><use href="#mitadOrn"/><use href="#mitadOrn" transform="translate(520 0) scale(-1 1)"/></svg>
+</section>
+
+<section class="cierre" id="confirmar">
+  <h2 class="titulo">¿Venís?</h2>
+  <p class="mayus" style="margin-top:.6rem">Confirmá tu asistencia<br>hasta el 15 de diciembre</p>
+  <a class="btn" id="wsp" target="_blank" rel="noopener" href="#">Confirmar</a>
+  <svg class="flor" aria-hidden="true" viewBox="0 0 260 40"><use href="#flor"/></svg>
+</section>
+
+<footer class="cielo cierre-cielo">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <h2 class="nombre">Ezequiel</h2>
+  <p class="cursiva">Los momentos especiales cobran sentido, cuando se comparte con personas especiales.</p>
+  <p class="firma"><span style="white-space:nowrap">Desarrollado por <b>Elías Said</b></span><br><a href="https://wa.me/5493865244579?text=Hola%20El%C3%ADas%2C%20vi%20la%20invitaci%C3%B3n%20de%20Ezequiel%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20trabajo" target="_blank" rel="noopener">Click aquí para contactarme</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
